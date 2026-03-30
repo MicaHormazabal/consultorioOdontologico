@@ -40,7 +40,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Acciones:</h6>
                 <a class="collapse-item" href="">Ver odontólogos</a>
-                <a class="collapse-item" href="">Alta odontólogos</a>
+                <a class="collapse-item" href="altaOdontologo.jsp">Alta odontólogos</a>
             </div>
         </div>
     </li>
@@ -59,6 +59,24 @@
                 <h6 class="collapse-header">Acciones:</h6>
                 <a class="collapse-item" href="">Ver pacientes</a>
                 <a class="collapse-item" href="">Alta pacientes</a>
+            </div>
+        </div>
+    </li>
+    
+    <!-- Nav Item - pacientes Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+            aria-expanded="true" aria-controls="collapseUsers">
+
+            <i class="fas fa-solid fa-user"></i>
+            <span>Usuarios</span>
+        </a>
+        <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Acciones:</h6>
+                <a class="collapse-item" href="">Ver usuarios</a>
+                <a class="collapse-item" href="altaUsuario.jsp">Alta usuarios</a>
             </div>
         </div>
     </li>
