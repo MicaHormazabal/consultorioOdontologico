@@ -19,28 +19,37 @@
 
                         <!-- Page Heading -->
                         
-                        <h1 class="h3 mb-0 text-gray-800">ALTA ODONTOLOGO</h1>
+                        <h1 class="h3 mb-0 text-gray-800">ALTA USUARIO</h1>
 
-                        <form class="user mt-3">
+                        <form class="user mt-3" action="SvUsuarios" method="POST">
 
                             <div class="col-sm-6 mb-3">
-                                <input type="text" class="form-control form-control-user" id="nombreusu"
-                                    placeholder="Nombre de usuario">
+                                <input type="text" class="form-control form-control-user" 
+                                       id="nombreusu"
+                                       name="nombreusu"
+                                       placeholder="Nombre de usuario"
+                                >
                             </div>
                             
                             <div class="col-sm-6 mb-3">
-                                <input type="password" class="form-control form-control-user" id="contrasenia"
-                                       placeholder="Contraseña">
+                                <input type="password" class="form-control form-control-user" 
+                                       id="contrasenia"
+                                       name="contrasenia"
+                                       placeholder="Contraseña"
+                                >
                             </div>
 
                             <div class="col-sm-6 mb-3">
-                                <input type="text" class="form-control form-control-user" id="rol"
-                                    placeholder="Rol">
+                                <input type="text" class="form-control form-control-user" 
+                                       id="rol"
+                                       name="rol"
+                                       placeholder="Rol"
+                                >
                             </div>
                             
-                            <a href="" class="btn btn-primary btn-user btn-block col-sm-6">
+                            <button type="submit" class="btn btn-primary btn-user btn-block col-sm-6">
                                 Crear Usuario
-                            </a>
+                            </button>
 
                         </form>                        
                     </div>                
