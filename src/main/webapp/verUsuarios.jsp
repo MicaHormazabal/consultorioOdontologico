@@ -1,3 +1,5 @@
+<%@page import="logica.Usuario"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,6 +39,7 @@
                                                 <th>ID</th>
                                                 <th>Nombre</th>
                                                 <th>Rol</th>
+                                                <th style=" width: 210px">Acción</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -44,15 +47,46 @@
                                                 <th>ID</th>
                                                 <th>Nombre</th>
                                                 <th>Rol</th>
+                                                <th style=" width: 210px">Acción</th>
                                             </tr>
                                         </tfoot>
+                                        
+                                        <%
+                                          List<Usuario> listaUsuarios = (List)request.getSession().getAttribute("listaUsuarios");
+                                        %>
+                                        
                                         <tbody>
+                                            <% for(Usuario user : listaUsuarios){ %>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Admin</td>
-                                                <td>admin</td>
+                                                <td> <%= user.getId_usuario() %> </td>
+                                                <td> <%= user.getNombreUsuario() %> </td>
+                                                <td> <%= user.getRol() %> </td>
+                                                
+                                                <td style="display:flex; width: 230px;">
+                                                    <form name="eliminar" action="SvEliminarUsuario" method="POST">
+                                                        <button type="submit" 
+                                                            class="btn btn-primary btn-user btn-block"
+                                                            style="background-color: red; margin-right: 5px;"
+                                                        >
+                                                            <i class="fas fa-trash-alt"></i>
+                                                            Eliminar
+                                                        </button>
+                                                        <input type="hidden" name="id" value="<%= user.getId_usuario() %>">
+                                                    </form>
+                                                    
+                                                    <form name="editar" action="SvEditarUsuario" method="POST">
+                                                        <button type="submit" 
+                                                            class="btn btn-primary btn-user btn-block"
+                                                            style="margin-left: 5px;"
+                                                        >
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                            Editar
+                                                        </button>
+                                                        <input type="hidden" name="id" value="<%= user.getId_usuario() %>">
+                                                    </form>
+                                                </td>
                                             </tr>
-                                           
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </div>
