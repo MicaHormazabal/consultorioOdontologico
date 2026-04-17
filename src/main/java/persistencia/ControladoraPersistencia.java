@@ -35,5 +35,9 @@ public class ControladoraPersistencia {
         }
     }
 
+    public Usuario getUsuario(int id_usuario) {    
+        return userJPA.findUsuario(id_usuario);
+    }
+
     
 }

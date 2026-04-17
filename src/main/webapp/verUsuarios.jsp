@@ -74,7 +74,7 @@
                                                         <input type="hidden" name="id" value="<%= user.getId_usuario() %>">
                                                     </form>
                                                     
-                                                    <form name="editar" action="SvEditarUsuario" method="POST">
+                                                    <form name="editar" action="SvEditarUsuario" method="GET">
                                                         <button type="submit" 
                                                             class="btn btn-primary btn-user btn-block"
                                                             style="margin-left: 5px;"
