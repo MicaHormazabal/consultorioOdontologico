@@ -1,3 +1,4 @@
+<%@page import="logica.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,14 +21,18 @@
                         <!-- Page Heading -->
                         
                         <h1 class="h3 mb-0 text-gray-800">EDITAR USUARIO</h1>
+                        
+                        <!-- traigo el user guardado en la sesión -->
+                        <% Usuario user = (Usuario)request.getSession().getAttribute("userParaEditar"); %>
 
-                        <form class="user mt-3" action="SvUsuarios" method="POST">
+                        <form class="user mt-3" action="SvEditarUsuario" method="POST">
 
                             <div class="col-sm-6 mb-3">
                                 <input type="text" class="form-control form-control-user" 
                                        id="nombreusu"
                                        name="nombreusu"
                                        placeholder="Nombre de usuario"
+                                       value="<%= user.getNombreUsuario() %>"
                                 >
                             </div>
                             
@@ -36,6 +41,7 @@
                                        id="contrasenia"
                                        name="contrasenia"
                                        placeholder="Contraseña"
+                                       value="<%= user.getContrasenia() %>"
                                 >
                             </div>
 
@@ -44,6 +50,7 @@
                                        id="rol"
                                        name="rol"
                                        placeholder="Rol"
+                                       value="<%= user.getRol() %>"
                                 >
                             </div>
                             

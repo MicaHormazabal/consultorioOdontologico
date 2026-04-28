@@ -39,5 +39,13 @@ public class ControladoraPersistencia {
         return userJPA.findUsuario(id_usuario);
     }
 
+    public void editarUsuario(Usuario user) {
+        try {
+            userJPA.edit(user);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 }

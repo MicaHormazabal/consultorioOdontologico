@@ -6,16 +6,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import logica.Controladora;
 
-@WebServlet(name = "SvEliminarUsuario", urlPatterns = {"/SvEliminarUsuario"})
-public class SvEliminarUsuario extends HttpServlet {
+@WebServlet(name = "SvLogin", urlPatterns = {"/SvLogin"})
+public class SvLogin extends HttpServlet {
 
     Controladora control = new Controladora();
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
 
     @Override
@@ -28,15 +28,24 @@ public class SvEliminarUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
-        int id_usuario = Integer.parseInt(request.getParameter("id"));
+        String usuario = request.getParameter("usuario");
+        String contrasenia = request.getParameter("contrasenia");
     
-        control.eliminarUsuario(id_usuario);
+        boolean esValido = false;
+        esValido = control.validarIngreso(usuario, contrasenia);
         
-        response.sendRedirect("SvUsuarios");
+        if (esValido) {
+            HttpSession miSession = request.getSession(true);
+            miSession.setAttribute("usuario", usuario);
+            response.sendRedirect("index.jsp");
+        } 
+        else {
+            response.sendRedirect("loginError.jsp");
+        }
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 }
